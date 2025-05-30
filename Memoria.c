@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <windows.h> // Para Sleep e system("cls")
+#include <iostream>
 
 #define TAM 4
 #define TOTAL_PARES 8
@@ -106,7 +107,7 @@ int jogarRodada(int matriz[TAM][TAM], char visivel[TAM][TAM], int *acertos, int 
         visivel[l1][c1] = matriz[l1][c1] + '0';
         visivel[l2][c2] = matriz[l2][c2] + '0';
         (*acertos)++;
-        putchar(7); // som (beep)
+        putchar(7); // beep
         printf("Par encontrado! Acertos: %d\n", *acertos);
     }
     else
@@ -146,12 +147,30 @@ void salvarPontuacao(int acertos, int erros)
     }
 }
 
-int main()
+void exibirMenu()
+{
+    std::cout << R"(
+     _    _     _          _                        ____                      
+    / \  | |___| |__   ___(_)_ __ ___   ___ _ __   / ___| __ _ _ __ ___   ___ 
+   / _ \ | |_  / '_ \ / _ \ | '_ ` _ \ / _ \ '__| | |  _ / _` | '_ ` _ \ / _ \
+  / ___ \| |/ /| | | |  __/ | | | | | |  __/ |    | |_| | (_| | | | | | |  __/
+ /_/   \_\_/___|_| |_|\___|_|_| |_| |_|\___|_|     \____|\__,_|_| |_| |_|\___|
+                                                                              
+                                em C++
+    )" << std::endl;
+
+    std::cout << "\n==== MENU PRINCIPAL ====\n";
+    std::cout << "1. Iniciar\n";
+    std::cout << "2. Sair\n";
+    std::cout << "Escolha uma opcao: ";
+}
+
+void iniciarJogo()
 {
     int matriz[TAM][TAM];
     char visivel[TAM][TAM];
-    char jogarNovamente;
     char simbolo = '*';
+    char jogarNovamente;
 
     do
     {
@@ -178,6 +197,32 @@ int main()
         system("cls");
 
     } while (jogarNovamente == 's' || jogarNovamente == 'S');
+}
+
+int main()
+{
+    int opcao;
+
+    do
+    {
+        exibirMenu();
+        std::cin >> opcao;
+
+        switch (opcao)
+        {
+            case 1:
+                iniciarJogo();
+                break;
+            case 2:
+                std::cout << "\nSaindo...\n";
+                break;
+            default:
+                std::cout << "\nOpcao invalida. Tente novamente.\n";
+                Sleep(1500);
+                system("cls");
+        }
+
+    } while (opcao != 2);
 
     printf("Obrigado por jogar!\n");
     return 0;
