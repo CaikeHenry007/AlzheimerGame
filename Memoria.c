@@ -215,6 +215,6 @@ int main() {
 
     } while (opcao != 2);
 
-    printf("Obrigado por jogar!\n");
+    printf("Saiu!\n");
     return 0;
 }
