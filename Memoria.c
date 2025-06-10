@@ -81,19 +81,21 @@ int jogarRodada(int matriz[TAM][TAM], char visivel[TAM][TAM], int *acertos, int 
 
     mostrarMatrizVisivel(visivel); // Mostra a matriz atual
 
-    // Entrada da 1ª posição
-    do {
-        printf("\nDigite linha e coluna da 1ª posicao (0 a 3): ");
-        scanf("%d %d", &l1, &c1);
-    } while (!coordenadaValida(l1, c1));
+   // Entrada da 1ª posição
+do {
+    printf("\nDigite linha e coluna da 1ª posicao (0 a 3): ");
+    scanf("%d %d", &l1, &c1);
+} while (!coordenadaValida(l1, c1) || visivel[l1][c1] != '*');
 
-    printf("Valor na posição (%d,%d): %d\n", l1, c1, matriz[l1][c1]);
+// Mostra o valor escondido
+printf("Valor na posição (%d,%d): %d\n", l1, c1, matriz[l1][c1]);
 
-    // Entrada da 2ª posição
-    do {
-        printf("Digite linha e coluna da 2ª posicao (0 a 3): ");
-        scanf("%d %d", &l2, &c2);
-    } while (!coordenadaValida(l2, c2));
+// Entrada da 2ª posição
+do {
+    printf("Digite linha e coluna da 2ª posicao (0 a 3): ");
+    scanf("%d %d", &l2, &c2);
+} while (!coordenadaValida(l2, c2) || (l1 == l2 && c1 == c2) || visivel[l2][c2] != '*');
+
 
     printf("Valor na posicao (%d,%d): %d\n", l2, c2, matriz[l2][c2]);
 
