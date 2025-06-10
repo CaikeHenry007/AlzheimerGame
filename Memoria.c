@@ -163,7 +163,7 @@ void exibirMenu() {
 void iniciarJogo() {
     int matriz[TAM][TAM];
     char visivel[TAM][TAM];
-    char simbolo = 3; // Caractere ASCII (coração)
+    char simbolo = 5; // Caractere ASCII (naipe de paus)
     char jogarNovamente;
 
     do {
