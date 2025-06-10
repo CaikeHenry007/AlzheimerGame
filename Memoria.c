@@ -83,7 +83,7 @@ int jogarRodada(int matriz[TAM][TAM], char visivel[TAM][TAM], int *acertos, int 
 
     // Entrada da 1ª posição
     do {
-        printf("\nDigite linha e coluna da 1ª posição (0 a 3): ");
+        printf("\nDigite linha e coluna da 1ª posicao (0 a 3): ");
         scanf("%d %d", &l1, &c1);
     } while (!coordenadaValida(l1, c1));
 
@@ -91,11 +91,11 @@ int jogarRodada(int matriz[TAM][TAM], char visivel[TAM][TAM], int *acertos, int 
 
     // Entrada da 2ª posição
     do {
-        printf("Digite linha e coluna da 2ª posição (0 a 3): ");
+        printf("Digite linha e coluna da 2ª posicao (0 a 3): ");
         scanf("%d %d", &l2, &c2);
     } while (!coordenadaValida(l2, c2));
 
-    printf("Valor na posição (%d,%d): %d\n", l2, c2, matriz[l2][c2]);
+    printf("Valor na posicao (%d,%d): %d\n", l2, c2, matriz[l2][c2]);
 
     // Verifica se formou um par válido
     if (matriz[l1][c1] == matriz[l2][c2] && (l1 != l2 || c1 != c2)) {
@@ -119,7 +119,7 @@ void salvarPontuacao(int acertos, int erros) {
     char nome[50];
     char salvar;
 
-    printf("Deseja salvar sua pontuação? (s/n): ");
+    printf("Deseja salvar sua pontuacao? (s/n): ");
     scanf(" %c", &salvar);
 
     if (salvar == 's' || salvar == 'S') {
@@ -130,9 +130,9 @@ void salvarPontuacao(int acertos, int erros) {
         if (arquivo) {
             fprintf(arquivo, "Nome: %s | Acertos: %d | Erros: %d\n", nome, acertos, erros);
             fclose(arquivo);
-            printf("Pontuação salva!\n");
+            printf("Pontuacao salva!\n");
         } else {
-            printf("Erro ao salvar a pontuação.\n");
+            printf("Erro ao salvar a pontuacao.\n");
         }
     }
 }
@@ -156,7 +156,7 @@ void exibirMenu() {
     printf("\n MENU PRINCIPAL\n");
     printf("%c 1 Iniciar Jogo\n", simbolo1);
     printf("%c 2 Sair\n", simbolo2);
-    printf("\nEscolha uma opção: ");
+    printf("\nEscolha uma opcao: ");
 }
 
 // Função principal do jogo
